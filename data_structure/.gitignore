@@ -1,0 +1,12 @@
+# Ignorer le dossier build
+build/
+
+# Ignorer les fichiers compilés
+*.o
+*.exe
+*.out
+*.gch
+
+# Ignorer les fichiers temporaires
+*~
+*.swp
