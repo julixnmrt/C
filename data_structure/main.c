@@ -4,26 +4,30 @@
 
 #include <stdio.h>
 
+void print_int(void* p) {
+    printf("%d", *(int*)p);
+}
+
+void print_float(void* p) {
+    printf("%f", *(float*)p);
+}
+
 int main() {
     //Créer une nouvelle liste
     List mylist = list_new();
 
-    int a = 10, b = 20, c = 30;
+    float a = 10.11, b = 20.3, c = 30.1, d=50;
 
     //Ajouter des éléments en tête
     list_push_front(&mylist, &a);
     list_push_front(&mylist, &b);
     list_push_front(&mylist, &c);
-
+    list_push_back(&mylist, &d);
     //Parcourir la liste et afficher les valeurs
-    printf("Contenu de la liste :\n");
-    Node* cur = mylist.head;
-    while(cur) {
-        printf("%d->", *(int*)cur->pval); 
-        cur = cur->next;
-    }
-    printf("NULL\n");
-    printf("Taille de la liste : %zu\n", mylist.size);
+    list_print(&mylist,print_float);
 
+
+    list_pop_front(&mylist);
+    list_print(&mylist,print_float);
     return 0;
 }

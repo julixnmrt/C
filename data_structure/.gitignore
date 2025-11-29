@@ -10,3 +10,5 @@ build/
 # Ignorer les fichiers temporaires
 *~
 *.swp
+
+.vscode/
